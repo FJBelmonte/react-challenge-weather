@@ -12,20 +12,25 @@ export default function Home() {
   }
   function renderClimate() {
     if (weather) {
-      return <Text>WEATHER</Text>;
+      return (
+        <View style={styles.loadingContainer}>
+          <Text>Loaded</Text>
+        </View>
+      );
     }
     return (
       <View style={styles.loadingContainer}>
         <Loading />
-        <Text>Loading</Text>
       </View>
     );
   }
   return (
     <View style={styles.container}>
       <View style={styles.contentContainer}>{renderClimate()}</View>
-      <View style={styles.contentContainer}>
-        <Button onPress={handleRefreshButton}>Refresh</Button>
+      <View style={styles.footer}>
+        <View style={styles.buttonsContainer}>
+          <Button onPress={handleRefreshButton}>Refresh</Button>
+        </View>
       </View>
     </View>
   );
