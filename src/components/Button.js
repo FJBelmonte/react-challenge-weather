@@ -1,12 +1,13 @@
-import {StyleSheet, Text, TouchableOpacity} from 'react-native';
-
-import React from 'react';
-import layout from '../constants/layout';
-
 // onPress      |> Function
 // style        |> StyleSheet Object
 // textStyle    |> Object
 // children     |> Text
+
+import {StyleSheet, Text, TouchableOpacity} from 'react-native';
+
+import React from 'react';
+import color from '../constants/color';
+import layout from '../constants/layout';
 
 export default function Button(props) {
   return (
@@ -26,7 +27,7 @@ Button.defaultProps = {
 const styles = StyleSheet.create({
   button: {
     borderRadius: 10,
-    backgroundColor: '#ff9999',
+    backgroundColor: color.buttonPrimary,
     width: layout.window.width * 0.6,
     marginVertical: 5,
     height: 46,
