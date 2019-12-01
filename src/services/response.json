@@ -1,0 +1,40 @@
+{
+    "base": "stations", 
+    "clouds": {
+        "all": 90
+    }, 
+    "cod": 200, 
+    "coord": {
+        "lat": 37.79, 
+        "lon": -122.41
+        }, 
+    "dt": 1575148125,
+    "id": 5391959, 
+    "main": {
+        "humidity": 81,
+        "pressure": 1015, 
+        "temp": 281.26, 
+        "temp_max": 283.15,
+        "temp_min": 279.26
+    }, 
+    "name": "San Francisco", 
+    "rain": {
+        "1h": 0.74
+    }, 
+    "sys": {
+        "country": "US", 
+        "id": 5154, 
+        "sunrise": 1575126327, 
+        "sunset": 1575161491, 
+        "type": 1
+    }, 
+    "timezone": -28800, 
+    "visibility": 9656, 
+    "weather": [
+        {"description": "light rain", "icon": "10d", "id": 500, "main": "Rain"}
+    ], 
+    "wind": {
+        "deg": 120, 
+        "speed": 7.7
+    }
+}

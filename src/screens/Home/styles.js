@@ -21,4 +21,28 @@ export default StyleSheet.create({
     alignItems: 'center',
     padding: 5,
   },
+  warningContainer: {
+    padding: 5,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'rgba(255, 255, 255, 0.5)',
+    borderRadius: 10,
+    paddingBottom: 50,
+  },
+  warningLottieContainer: {
+    width: 150,
+    height: 150,
+    alignSelf: 'center',
+  },
+  primaryText: {
+    fontFamily: 'helvetica',
+    fontSize: 18,
+    textAlign: 'center',
+  },
+  secondaryText: {
+    fontFamily: 'helvetica',
+    fontSize: 12,
+    textAlign: 'center',
+    marginTop: 20,
+  },
 });
