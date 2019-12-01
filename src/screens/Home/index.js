@@ -1,11 +1,11 @@
 navigator.geolocation = require('@react-native-community/geolocation');
 
-import {Alert, Text, View} from 'react-native';
 import React, {useEffect, useState} from 'react';
+import {Text, View} from 'react-native';
 
 import Button from '../../components/Button';
 import Loading from '../../components/Loading';
-import WarningLocation from './WarningLocation';
+import WarningLocation from '../../components/WarningLocation';
 import WeatherCard from '../../components/WeatherCard';
 import geolocation from '@react-native-community/geolocation';
 import styles from './styles';
@@ -13,18 +13,20 @@ import weatherAPI from '../../services/openWeatherMap';
 
 export default function Home() {
   const [weather, setWeather] = useState(null);
-  const [locationPermission, setLocationPermission] = useState(false);
   const [location, setLocation] = useState(null);
 
+  // runs on screen startup
   useEffect(() => {
     askPermission();
     getLocation();
   }, []);
 
+  // watch location and call async update
   useEffect(() => {
-    asyncGetWeather();
+    if (location) asyncGetWeather();
   }, [location]);
 
+  // create location according to user position
   function getLocation() {
     geolocation.getCurrentPosition(
       e => {
@@ -37,23 +39,27 @@ export default function Home() {
     );
   }
 
+  // ask permission to use geolocation
   function askPermission() {
     geolocation.requestAuthorization();
   }
 
-  function handleRefreshButton() {
-    askPermission();
-    getLocation();
-  }
-
+  // request weather data api
   async function asyncGetWeather() {
     let encodedLocation = `lat=${location.lat}&lon=${location.lon}`;
     const response = await weatherAPI.get(`&${encodedLocation}`);
     setWeather(response.data);
   }
 
+  // handle 'Atualizar' button behavior and clean weather
+  function handleRefreshButton() {
+    setWeather(null);
+    getLocation();
+  }
+
   function renderClimate() {
-    if (locationPermission || location) {
+    // render WeatherCard
+    if (location) {
       if (weather) {
         return (
           <View style={styles.loadingContainer}>
@@ -61,13 +67,14 @@ export default function Home() {
           </View>
         );
       }
-
+      // render Loading
       return (
         <View style={styles.loadingContainer}>
           <Loading />
         </View>
       );
     }
+    // render warning if user has not given permission
     return (
       <View style={styles.warningContainer}>
         <View style={styles.warningLottieContainer}>

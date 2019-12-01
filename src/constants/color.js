@@ -1,4 +1,4 @@
 export default color = {
-  buttonPrimary: '#ff9999',
+  buttonPrimary: '#5555ff',
   buttonSecondary: '#9999ff',
 };

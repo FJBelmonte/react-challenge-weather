@@ -2,7 +2,7 @@ import {StyleSheet} from 'react-native';
 import layout from '../../constants/layout';
 
 export default StyleSheet.create({
-  container: {flex: 1, backgroundColor: '#ddddff'},
+  container: {flex: 1, backgroundColor: '#ccccff'},
   contentContainer: {flex: 1, justifyContent: 'center', alignItems: 'center'},
   loadingContainer: {
     width: layout.window.width,
